@@ -1,0 +1,105 @@
+package rewards.web;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
+import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
+
+@Configuration
+public class RewardsMvcConfig extends WebMvcConfigurerAdapter {
+
+	@Override
+	public void addViewControllers(ViewControllerRegistry registry) {
+		registry.addViewController("/").setViewName("index");
+	}
+
+	@Bean
+	public TilesConfigurer tilesConfigurer() {
+		TilesConfigurer configurer = new TilesConfigurer();
+		configurer.setDefinitions("/WEB-INF/views/tiles.xml", "/WEB-INF/views/accounts/tiles.xml");
+		return configurer;
+	}
+
+	@Bean
+	public TilesViewResolver tilesViewResolver() {
+		TilesViewResolver viewResolver = new TilesViewResolver();
+		viewResolver.setOrder(Ordered.LOWEST_PRECEDENCE - 1);
+		return viewResolver;
+	}
+
+	// TODO 01b: Configure an AccountsXlsxView as a bean
+	// Give it a name of "accounts/list".
+	@Bean("accounts/list")
+	public AccountsXlsxView accountsXlsxView() {
+		return new AccountsXlsxView();
+	}
+
+	// TODO 01c: Configure a BeanNameViewResolver bean
+	/*
+	 * That way, the BeanNameViewResolver will match with the logical view name
+	 * "accounts/list" to the AccountsXlsxView bean (add in a previous step). But
+	 * Spring Boot's default MVC configuration already adds a BeanNameViewResolver
+	 * bean with id="beanNameViewResolver". So, Spring Boot has already completed
+	 * this step for you (grin).
+	 */
+
+	// TODO 01d: Run the web-app and try "/accounts.xlsx" and "/accounts" URLs.
+	/*
+	 * If your computer has a program for displaying Excel documents you will be
+	 * able to open the document. If not, you will be prompted to save the document
+	 * to a file on the local disk.
+	 * 
+	 * Spring Boot's default MVC configuration adds a ContentNegotiatingViewResolver
+	 * (CNVR) bean with id="viewResolver". This CNVR bean is ordered as
+	 * Ordered.HIGHEST_PRECENDENCE. This means that it gets first chance to resolve
+	 * the view name. It will use other view resolvers in the context. So, when
+	 * there is no .xlsx path extension in the URL, the CNVR will resolve to a Tiles
+	 * view and not with bean name.
+	 */
+
+	// TODO 01e: (BONUS) Support both .xls (Excel 97-2003) and .xlsx (Office 2007)
+	// formats
+
+	// TODO 02: Return accounts as JSON
+	// Add a JsonViewResolver bean. This class has already been provided to you.
+
+	// TODO 02a: Run the web-app again to see if you can get HTML, XLSX, XLS, and
+	// JSON.
+	/*
+	 * When viewing accounts as JSON, the accounts were fetched, but their cards are
+	 * not (at least, not yet). The cards are lazily loaded. Meaning, they are only
+	 * loaded when needed. In regular Spring MVC (no Spring Boot), you would have
+	 * gotten a "failed to lazily initialize a collection of:
+	 * rewards.domain.model.Account.cards" error. But this does not happen with
+	 * Spring Boot's default configuration, because it has automatically added an
+	 * OpenEntityManagerInViewInterceptor (remember handler interceptors?) when it
+	 * determined that JPA was in the classpath, and it is a web-app.
+	 */
+
+	/*
+	 * If not using Spring Boot's default MVC configuration (e.g. @EnableWebMvc),
+	 * the overrides below will produce a roughly similar MVC configuration, just
+	 * remove the "tilesViewResolver" bean because the method override of
+	 * configureViewResolvers() already adds a TilesViewResolver bean with
+	 * registry.tiles() method call.
+	 */
+	/*
+	 * @Override public void configureViewResolvers(ViewResolverRegistry registry) {
+	 * registry.enableContentNegotiation(true); registry.beanName();
+	 * registry.viewResolver(jsonViewResolver()); registry.tiles(); }
+	 * 
+	 * @Override public void
+	 * configureContentNegotiation(ContentNegotiationConfigurer configurer) {
+	 * configurer.defaultContentType( org.springframework.http.MediaType.TEXT_HTML);
+	 * }
+	 * 
+	 * @Override public void addResourceHandlers(ResourceHandlerRegistry registry) {
+	 * registry.addResourceHandler("/webjars/**")
+	 * .addResourceLocations("classpath:/META-INF/resources/webjars/");
+	 * registry.addResourceHandler("/**") .addResourceLocations("/"); }
+	 */
+
+}

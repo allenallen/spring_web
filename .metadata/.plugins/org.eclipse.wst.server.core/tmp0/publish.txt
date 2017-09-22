@@ -1,0 +1,7 @@
+#Tomcat publish data
+#Wed Sep 20 13:44:28 PHT 2017
+org.eclipse.jst.jee.server\:mvc-2=/home/training/sts-bundle/pivotal-tc-server-developer-3.2.6.RELEASE/base-instance/wtpwebapps/mvc-2
+org.eclipse.jst.jee.server\:/binary\:/home/training/web-spring-training/repository/org/apache/tomcat/embed/tomcat-embed-websocket/8.5.15/tomcat-embed-websocket-8.5.15.jar=/home/training/sts-bundle/pivotal-tc-server-developer-3.2.6.RELEASE/base-instance/wtpwebapps/mvc-2/WEB-INF/lib/tomcat-embed-websocket-8.5.15.jar
+org.eclipse.jst.jee.server\:mvc-1=/home/training/sts-bundle/pivotal-tc-server-developer-3.2.6.RELEASE/base-instance/wtpwebapps/mvc-1
+org.eclipse.jst.jee.server\:/binary\:/home/training/web-spring-training/repository/org/apache/tomcat/embed/tomcat-embed-jasper/8.5.15/tomcat-embed-jasper-8.5.15.jar=/home/training/sts-bundle/pivotal-tc-server-developer-3.2.6.RELEASE/base-instance/wtpwebapps/mvc-2/WEB-INF/lib/tomcat-embed-jasper-8.5.15.jar
+org.eclipse.jst.jee.server\:/binary\:/home/training/web-spring-training/repository/org/springframework/spring-web/4.3.9.RELEASE/spring-web-4.3.9.RELEASE.jar=/home/training/sts-bundle/pivotal-tc-server-developer-3.2.6.RELEASE/base-instance/wtpwebapps/mvc-2/WEB-INF/lib/spring-web-4.3.9.RELEASE.jar

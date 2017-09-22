@@ -1,0 +1,53 @@
+package rewards.web;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import rewards.config.InfrastructureConfig;
+import rewards.config.RewardsAppConfig;
+import rewards.config.RewardsMvcConfig;
+
+// TODO 01: Load Spring ApplicationContext in Servlet 3.0+
+// This class extends a Spring MVC class that initializes a DispatcherServlet
+// and expects @Configuration classes to be loaded.
+@Configuration
+public class RewardsServletContainerInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+
+	@Override
+	protected Class<?>[] getRootConfigClasses() {
+		// TODO 01a: Load root config classes
+		// You'll need to load two configurations for the root application context.
+		// Look under rewards.config to see the configurations.
+		return new Class[] { InfrastructureConfig.class, RewardsAppConfig.class };
+	}
+
+	@Override
+	protected Class<?>[] getServletConfigClasses() {
+		// TODO 01d: Load the servlet/MVC config class
+		// This is the configuration class created in the previous step.
+		return new Class[] { RewardsMvcConfig.class };
+	}
+
+	@Override
+	protected String[] getServletMappings() {
+		// TODO 01e: Map DispatcherServlet to "/" URL
+		return {"/"};
+
+		/*
+		 * When mapping DispatcherServlet to '/' be careful NOT to map it to '/*'.
+		 * Mapping it to '/*' will mean path info mapping. This means that ALL requests
+		 * being made to your web-app will be directed to your DispatcherServlet. This
+		 * includes /{context-root}/something.html,
+		 * /{context-root}/WEB-INF/views/something.jsp, and /{context-root}/some-path.
+		 * 
+		 * When your controller selects a view that points to a *.jsp, say
+		 * '/{context-root}/WEB-INF/views/index.jsp', instead of allowing your servlet
+		 * container to handle the request, your DispatcherServlet jumps in and starts
+		 * looking for a controller to handle the request. It doesn't find any, and
+		 * hence, you get a 404.
+		 * 
+		 * So, map your DispatcherServlet to '/' instead. NOT '/*'!!!
+		 */
+	}
+
+}

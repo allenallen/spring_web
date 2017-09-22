@@ -1,0 +1,11 @@
+package snippet;
+
+public class Snippet {
+	common
+	rewards.application
+	rewards.domain.model
+	rewards.infrastructure.jpa
+	rewards.web
+	/mvc-1/src/main/resources/messages.properties
+}
+

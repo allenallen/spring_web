@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<configuration>
+
+  <contextListener
+    class="ch.qos.logback.classic.jul.LevelChangePropagator">
+    <!-- reset all previous level configurations of all j.u.l. loggers -->
+    <resetJUL>true</resetJUL>
+  </contextListener>
+
+  <appender name="STDOUT"
+    class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>
+        [%thread] %-5level %logger{36} - %msg%n
+     </pattern>
+    </encoder>
+  </appender>
+
+  <logger name="rewards" level="DEBUG" />
+  <logger name="org.springframework" level="INFO" />
+  <!-- Uncomment to show SQL statements
+  <logger name="org.hibernate.SQL" level="DEBUG" />
+  -->
+  <!-- Uncomment to show SQL parameter bindings
+  <logger name="org.hibernate.type.descriptor.sql" level="TRACE" />
+  -->
+
+  <root level="WARN">
+    <appender-ref ref="STDOUT" />
+  </root>
+
+</configuration>

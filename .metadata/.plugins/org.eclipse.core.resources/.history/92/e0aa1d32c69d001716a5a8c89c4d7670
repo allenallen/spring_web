@@ -1,0 +1,37 @@
+package rewards.web;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+// TODO 02: Implement home page
+// TODO 02a: Annotate this class to be a controller in Spring MVC
+@Controller
+public class HomePageController {
+
+	// TODO 02b: Define method that maps to GET "/" (root of DispatcherServlet)
+	// Since we've mapped the DispatcherServlet to "/", this controller
+	// will be invoked when you use the "/" URL.
+	@RequestMapping("/")
+	public String home() {
+		return "index";
+	}
+
+	// TODO 02c: Select /WEB-INF/views/index.jsp as the view to render
+	// TODO 02d: Run the web-app and see the home page
+	/*
+	 * When running your web-app, you probably noticed your view rendered with
+	 * message placeholders like ???welcome.title??? instead of the actual messages.
+	 * In the next step, you'll fix this and get your messages resolving properly.
+	 */
+
+	// TODO 02f: Optimize view resolution
+	// TODO 02f1: Instead of returning the full path to the view, return the logical
+	// view name "index"
+	// TODO 02f2: Run the web-app and see the home page
+	/*
+	 * When running your web-app, you should see a 404 NOT FOUND. This is because
+	 * the DispatcherServlet tried to forward to "/index". In the next step, you'll
+	 * fix this and get your logical view name working properly.
+	 */
+
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1505874560003_0" label="java-web-spring-project-parent" name="java-web-spring-project-parent">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/mvc-layout" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/mvc-ajax" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/mvc-1" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/mvc-2" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/mvc-form" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/mvc-test" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/mvc-view" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/mvc-security" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/rest-ws" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/mvc-personalization" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1505874639956_1" label="Window Working Set" name="Aggregate for window 1505874639956"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1506047845613_2" label="Window Working Set" name="Aggregate for window 1506047845613"/>
+</workingSetManager>

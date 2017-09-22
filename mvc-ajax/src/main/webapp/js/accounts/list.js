@@ -41,3 +41,11 @@ function processAjaxAccountDetails(url) {
 	} );
 	return false;
 }
+
+$(function(){
+	$("searchButton").bind('click',processAjaxSubmit);
+});
+
+function processAjaxSubmit(event){
+	alert('hi');
+}

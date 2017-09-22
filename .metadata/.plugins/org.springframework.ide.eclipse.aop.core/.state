@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="mvc-layout"/>
+<aop-project name="mvc-ajax"/>
+<aop-project name="mvc-1"/>
+<aop-project name="mvc-2"/>
+<aop-project name="mvc-form"/>
+<aop-project name="mvc-test"/>
+<aop-project name="mvc-view"/>
+<aop-project name="mvc-security"/>
+<aop-project name="rest-ws"/>
+<aop-project name="mvc-personalization"/>
+</aop-reference-model>

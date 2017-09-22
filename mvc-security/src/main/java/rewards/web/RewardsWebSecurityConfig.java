@@ -51,9 +51,11 @@ public class RewardsWebSecurityConfig extends WebSecurityConfigurerAdapter {
 				 * causes an Access Denied error because joe is not an ADMIN.
 				 */
 
-				.authorizeRequests().antMatchers(HttpMethod.GET, "/accounts").hasRole("USER")
-				.antMatchers(HttpMethod.GET, "/accounts/*").hasRole("ADMIN").antMatchers("/accounts/**")
-				.hasRole("ADMIN").and().logout().permitAll().logoutSuccessUrl("/");
+				.authorizeRequests()
+				.antMatchers(HttpMethod.GET, "/accounts").hasRole("USER")
+				.antMatchers(HttpMethod.GET, "/accounts/*").hasAnyRole("USER","ADMIN")
+				.antMatchers("/accounts/**").hasRole("ADMIN")
+				.and().logout().permitAll().logoutSuccessUrl("/");
 	}
 
 	@Autowired
